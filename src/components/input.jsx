@@ -1,22 +1,22 @@
 import React from "react";
 import { useState } from "react";
 
-const Input = () => {
+const Input = ({ handleChange }) => {
   const [searchedValue, setSearchedValue] = useState("");
-  const handleChange = (e) => {
+  const changedValue = (e) => {
     console.log(e.target.value);
-    // setSearchedValue(e.target.value);
+    handleChange(e.target.value);
   };
   return (
     <div>
-      <div>
+      <div className="">
         <input
           type="text"
-          className="border border-gray-300"
-          onChange={handleChange}
+          className="border border-gray-300 mt-5 hover:border-blue-300"
+          onChange={changedValue}
         ></input>
       </div>
-      <p>Searched value: {searchedValue}</p>
+
       <p>List</p>
     </div>
   );
